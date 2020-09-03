@@ -63,10 +63,10 @@ _**Post-MVP Stretch Goals**_
 
 ![API response](https://github.com/SpideyFanDan/comic-book-organizer/blob/87be78c316c5db2bde388e9bbecd6c9441b25cd2/Wireframes/API-screenshot.png)
 
-## Architecture Pattern (backend)
-
-![Architecture Pattern](https://github.com/SpideyFanDan/comics-collection-app/blob/master/wireframes/architecture-pattern.jpg)
-
 ## Component Hierarchy (frontend)
 
 ![Component Hierarchy](https://github.com/SpideyFanDan/comics-collection-app/blob/master/wireframes/component-hierarchy.jpg)
+
+## Architecture Pattern (backend)
+
+![Architecture Pattern](https://github.com/SpideyFanDan/comics-collection-app/blob/master/wireframes/architecture-pattern.jpg)

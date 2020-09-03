@@ -3,7 +3,7 @@
 ## Project Description
 
 A comic book collection app that allows a collector to search for comic books they own and add them to a database to manage their personal collection.
-The app uses Django to create an API that stores the collection information for individual users, and React and Bootstraps on the front end with a search function that pulls from the Comic Vine API
+The app uses Django and Python to create an API that stores the collection information for individual users, and React and Bootstraps on the front end with a search function that pulls from the Comic Vine API
 
 ## Wireframes
 

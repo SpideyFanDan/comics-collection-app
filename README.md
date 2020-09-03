@@ -65,4 +65,4 @@ _**Post-MVP Stretch Goals**_
 
 ## Architecture Pattern
 
-![Architecture Pattern]()
+![Architecture Pattern](https://github.com/SpideyFanDan/comics-collection-app/blob/master/wireframes/architecture-pattern.jpg)

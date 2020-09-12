@@ -1,38 +1,137 @@
-.App {
+html {
+	font-size: 10px;
+}
+* {
+	box-sizing: border-box;
+}
+body {
+	margin: 0px;
+	padding: 0;
+	background-color: rgb(220, 216, 216);
+}
+.header {
+	background: rgb(63, 6, 6);
+	color: white;
+	display: grid;
+	grid-template-columns: 3fr .3fr .3fr;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 20px;
+	font-family: 'Patrick Hand SC', cursive;
+}
+nav {
+	font-size: 2rem;
+	cursor: pointer;
+}
+small {
+	font-size: 1.2rem;
+}
+.container {
+	margin: 0 auto;
+	max-width: 1800px;
+	padding: 10px;
+}
+.title {
+	font-size: 4.4rem;
 	text-align: center;
 }
-
-.App-logo {
-	height: 40vmin;
-	pointer-events: none;
+.search-form {
+	display: grid;
+}
+.search-label {
+	font-size: 1.2rem;
+	text-transform: uppercase;
+}
+.search-button {
+	background-color: rgba(0, 0, 0, 0.75);
+	color: white;
+	padding: 12px;
+	font-size: 20px;
+	border: 1px solid rgba(0, 0, 0, 0.75);
+	transition: background-color 250ms;
+	border-radius: 5px;
+	margin-top: 10px;
+	cursor: pointer;
+}
+.search-button:hover {
+	background-color: rgba(63, 62, 62, 0.85);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-	.App-logo {
-		animation: App-logo-spin infinite 20s linear;
-	}
+.search-box {
+	display: block;
+	width: 100%;
+	padding: 15px;
+	border: none;
+	outline: none;
+	background: none;
+	background-color: #eee;
+	border-radius: 8px;
+	font-size: 20px;
+	font-weight: 300;
+	transition: 0.4s ease-out;
 }
-
-.App-header {
-	background-color: #9aa2b3;
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	font-size: calc(10px + 2vmin);
+.search-box:focus {
+	box-shadow: 0px 0px 8px 3px #4484c4;
+}
+.comics-list {
+	display: block;
+	cursor: pointer;
+}
+.tiny-image {
+	border-radius: 10px;
+	padding: 5px;
+}
+.comics-list-span {
+	display: inline-flex;
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+.comic-book-info {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vw;
+	overflow-y: scroll;
+}
+.comic-book-info .content {
+	display: block;
+	width: 100%;
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 25px;
 	color: white;
 }
-
-.App-link {
-	color: #61dafb;
+.comic-book-info .content .return {
+	display: inline-block;
+	padding: 15px 30px;
+	font-size: 18px;
+	font-weight: 700;
+	background: darkcyan;
+	color: white;
+	border-radius: 8px;
+	border: none;
+	outline: none;
+	appearance: none;
+	cursor: pointer;
+	transition: 0.4s ease-out;
 }
-
-@keyframes App-logo-spin {
-	from {
-		transform: rotate(0deg);
+.comic-book-info .content .return:hover {
+	background: #223343;
+}
+@media (min-width: 786px) {
+	.search-form {
+		grid-template-columns: auto 1fr auto;
+		grid-gap: 1rem;
+		align-items: center;
 	}
-	to {
-		transform: rotate(360deg);
+	.search-input {
+		margin-bottom: 0;
+	}
+	.search-button {
+		margin-bottom: 10px;
+	}
+	.comics-list-span {
+		font-size: 28px;
 	}
 }

@@ -1,12 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import { Switch, Route, Redirect, HashRouter } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import UpdateComic from './components/UpdateComic';
 import Navbar from './components/Navbar';
-
-import Search from './Search';
-import Header from './Header';
+import Search from './components/Search';
 
 class App extends Component {
 	constructor(props) {

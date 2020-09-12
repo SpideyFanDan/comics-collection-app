@@ -12,17 +12,17 @@ const Navigation = () => {
 			<Navbar.Toggle aria-controls='basic-navbar-nav' />
 			<Navbar.Collapse id='basic-navbar-nav'>
 				<Nav>
-					<LinkContainer to='/login'>
-						<Nav.Link>Login</Nav.Link>
+					<LinkContainer to='/collection'>
+						<Nav.Link>Collection |</Nav.Link>
 					</LinkContainer>
 					<LinkContainer to='/search'>
-						<Nav.Link>Search</Nav.Link>
-					</LinkContainer>
-					<LinkContainer to='/update'>
-						<Nav.Link>Update</Nav.Link>
+						<Nav.Link>Search |</Nav.Link>
 					</LinkContainer>
 					<LinkContainer to='/about'>
-						<Nav.Link>About</Nav.Link>
+						<Nav.Link>About |</Nav.Link>
+					</LinkContainer>
+					<LinkContainer to='/login'>
+						<Nav.Link>Login</Nav.Link>
 					</LinkContainer>
 				</Nav>
 			</Navbar.Collapse>

@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import './fonts/AVENGEANCE_HEROIC_AVENGER_BD.ttf';
+import './fonts/ComicHelvetic_Medium.otf';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 

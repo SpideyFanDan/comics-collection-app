@@ -7,19 +7,16 @@ const Navigation = () => {
 	return (
 		<Navbar collapseOnSelect variant='light' expand='md'>
 			<LinkContainer to='/home'>
-				<Navbar.Brand>Comic Book Collection</Navbar.Brand>
+				<Navbar.Brand >Comic Book Collection</Navbar.Brand>
 			</LinkContainer>
 			<Navbar.Toggle aria-controls='basic-navbar-nav' />
 			<Navbar.Collapse id='basic-navbar-nav'>
 				<Nav>
 					<LinkContainer to='/collection'>
-						<Nav.Link>Collection |</Nav.Link>
+						<Nav.Link>Collection</Nav.Link>
 					</LinkContainer>
 					<LinkContainer to='/search'>
-						<Nav.Link>Search |</Nav.Link>
-					</LinkContainer>
-					<LinkContainer to='/about'>
-						<Nav.Link>About |</Nav.Link>
+						<Nav.Link>Search</Nav.Link>
 					</LinkContainer>
 					<LinkContainer to='/login'>
 						<Nav.Link>Login</Nav.Link>

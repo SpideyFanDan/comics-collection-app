@@ -1,3 +1,13 @@
+@font-face {
+	font-family: 'Avengers';
+	src: local('Avengers'),
+		url(../fonts/AVENGEANCE_HEROIC_AVENGER_BD.ttf) format('truetype');
+}
+@font-face {
+	font-family: 'comic-helvetic';
+	src: local('comic-helvetic'),
+		url(../fonts/ComicHelvetic_Medium.otf) format('opentype');
+}
 html {
 	font-size: 10px;
 }
@@ -84,69 +94,42 @@ small {
 	padding: 5px;
 	position: absolute;
 }
-.cards {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-gap: 0.3em;
-	max-width: 180px;
-	width: 100%;
-	max-width: 100%;
-	min-width: 100%;
-}
-.card-group {
-	display: flex;
-	justify-content: center;
-	margin: 5px;
-}
-.cover {
-	max-width: 180px;
-}
 .results {
-	border-radius: 15px;
-	background-color: rgb(106, 161, 203);
-	font-family: 'comic-helvetic';
-	position: relative;
-	padding: 0.5rem 1rem 4rem 0.5rem;
-	cursor: pointer;
+	border-radius: 15px !important;
+	background-color: rgb(106, 161, 203) !important;
+	color: rgb(74, 10, 10) !important;
+	font-family: 'comic-helvetic' !important;
+	position: relative !important;
+	padding: 0.5rem 1rem 4rem 0.5rem !important;
+	cursor: pointer !important;
 }
 .results:hover {
-	background-color: rgba(94, 92, 92, 0.85);
-	color: rgb(216, 222, 114);
+	background-color: rgba(94, 92, 92, 0.85) !important;
+	color: rgb(216, 222, 114) !important;
 }
 .comics-list-span {
-	display: inline-flex;
+	display: inline-flex !important;
 	font-size: 14px !important;
-	padding-top: 3rem;
-	padding-right: 1rem;
-	padding-bottom: 0rem;
-	padding-left: 10rem;
+	padding-top: 3rem !important;
+	padding-right: 1rem !important;
+	padding-bottom: 0rem !important;
+	padding-left: 10rem !important;
 }
 .comic-book-info {
-	top: 0;
-	left: 0;
-	width: 200vw;
-	height: 200vw;
-	overflow-y: scroll;
-}
-.comic-book-modal {
-	font-family: 'comic-helvetic';
-	text-align: center !important;
-	display: flex !important;
-	margin: auto;
-	padding-bottom: 0px;
-}
-
-.comic-modal-title {
-	  margin: auto;
-	  font-size: 2em !important;
+	position: fixed !important;
+	top: 0 !important;
+	left: 0 !important;
+	width: 100vw !important;
+	height: 100vw !important;
+	overflow-y: scroll !important;
 }
 .comic-book-info .content {
-	display: block;
-	width: 100%;
-	max-width: 960px;
-	margin: 0 auto;
-	padding: 25px;
-	color: white;
+	display: block !important;
+	width: 100% !important;
+	max-width: 960px !important;
+	margin: 0 auto !important;
+	padding: 25px !important;
+	color: white !important;
 }
 .comic-book-info .content .return {
 	display: inline-block;

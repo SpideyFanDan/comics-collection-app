@@ -1,10 +1,24 @@
 import React, { useState } from 'react';
-import ComicBookInfo from './ComicBookInfo';
-import { Route, Link } from 'react-router-dom';
+import { Button, Container } from 'react-bootstrap';
+import ComicBookModal from './ComicBookModal';
+import './Search.css';
+// import { Route, Link } from 'react-router-dom';
 
 function Search() {
 	const [query, setQuery] = useState('');
 	const [comicBooks, setComicBooks] = useState([]);
+	const [comic, setComic] = useState(null);
+	const [isOpen, setIsOpen] = useState(false);
+
+	const showModal = (comic) => {
+		console.log('hello world');
+		setIsOpen(true);
+		setComic(comic);
+	};
+
+	const hideModal = () => {
+		setIsOpen(false);
+	};
 	const searchTitle = async (event) => {
 		event.preventDefault();
 		const cors = 'https://cors-anywhere.herokuapp.com/';
@@ -17,8 +31,13 @@ function Search() {
 			console.error(err);
 		}
 	};
+	// const chosenComic = props => {
+	//  	const [comic, setComic] = useState(props);
+	// };
+	//		return ()
+
 	return (
-		<section>
+		<Container>
 			<form className='search-form' onSubmit={searchTitle}>
 				<label className='search-label' htmlFor='query'>
 					Search by Comic Title
@@ -35,23 +54,33 @@ function Search() {
 					Search
 				</button>
 			</form>
-
-			<div className='comics-list'>
-				{comicBooks.map((comicBook) => (
-					<div className='results' id={comicBook.id}>
-						<img
-							className='tiny-image'
-							src={comicBook.image.icon_url}
-							alt={comicBook.volume.name + 'cover'}
-						/>
-						<span className='comics-list-span'>
-							{comicBook.volume.name}, iss. #{comicBook.issue_number}, pub.
-							date: {comicBook.cover_date}
-						</span>
+			<Container className='comics-list'>
+				{comicBooks.map((comic) => (
+					<div key={comic.id}>
+						<Button
+							onClick={() => showModal(comic)}
+							variant='outline-secondary'
+							className='results'
+							name='comic'
+							value={comic.id}>
+							<img
+								className='tiny-image'
+								src={comic.image.icon_url}
+								alt={comic.volume.name + 'cover'}
+							/>
+							<span className='comics-list-span'>
+								{comic.volume.name}, iss. #{comic.issue_number}, pub. date:{' '}
+								{comic.cover_date}
+							</span>
+						</Button>
 					</div>
 				))}
-			</div>
-		</section>
+				<ComicBookModal
+					comicBooks={comic}
+					show={isOpen}
+					onHide={hideModal}></ComicBookModal>
+			</Container>
+		</Container>
 	);
 }
 

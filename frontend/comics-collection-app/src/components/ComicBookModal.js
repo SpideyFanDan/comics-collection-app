@@ -1,23 +1,25 @@
 import React from 'react';
 import { Modal, Button, Image } from 'react-bootstrap';
-import axios from 'axios';
+// import axios from 'axios';
+import { Link } from 'react-router-dom';
 // import UserCollection from './UserCollection';
 
 function ComicBookModal(props) {
-	// handleSubmit = () => {
+	// handleSubmit = (e) => {
 	// 	const newComic = {
 	// 		title: props.comicBooks.volume.name,
 	// 		issue: props.comicBooks.issue_number,
 	// 		cover_url: props.comicBooks.image.small_url,
 	// 		publication_date: props.comicBooks.cover_date,
-    //     };
-    //     axios
+	//     };
+	//     axios
 	// 		.post(
 	// 			`https://dws-comicbook-collection.herokuapp.com/comics/${props.newComic.id}`
 	// 		)
 	// 		.then((res) => {
 	// 			console.log(res);
-    //     //somehow send this newComic to UserCollection.js
+	//          this.setState({newComic: newComic})
+	//     //somehow route to /collection in the browser UserCollection.js
 	// });
 	return (
 		<Modal
@@ -47,11 +49,14 @@ function ComicBookModal(props) {
 				<Button variant='secondary' className='return' onClick={props.onHide}>
 					Return to search list
 				</Button>
-                <Button variant='primary' 
-                // onClick={handleSubmit} 
-                className='add'>
-					Add to collection
-				</Button>
+				<Link to='/collection'>
+					<Button
+						variant='primary'
+						// onClick={handleSubmit}
+						className='add'>
+						Add to collection
+					</Button>
+				</Link>
 			</Modal.Footer>
 		</Modal>
 	);

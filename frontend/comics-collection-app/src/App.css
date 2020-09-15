@@ -92,6 +92,7 @@ small {
 	width: 100%;
 	max-width: 100%;
 	min-width: 100%;
+	font-family: 'comic-helvetic';
 }
 .card-group {
 	display: flex;
@@ -100,6 +101,7 @@ small {
 }
 .cover {
 	max-width: 180px;
+	padding: 1em;
 }
 .results {
 	border-radius: 15px;

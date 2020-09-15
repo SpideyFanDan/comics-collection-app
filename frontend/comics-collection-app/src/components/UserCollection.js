@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import { Button, Container, Card, CardGroup } from 'react-bootstrap';
 import axios from 'axios';
-import UserCollectionModal from './UserCollectionModal';
+import { Link, Route } from 'react-router-dom';
+import UpdateCollectionForm from './UpdateCollectionForm';
 
 class UserCollection extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			modalShow: false,
-			setModalShow: false,
 			newComic: {},
-			updateComic: {},
 		};
 	}
 	componentWillMount() {
@@ -31,12 +29,14 @@ class UserCollection extends Component {
 				<Container className='cards'>
 					{this.props.comicsCollection.map((comic) => {
 						return (
-							<div key={comic.id}>
+							<div>
 								<CardGroup>
-									<Card style={{ backgroundColor: 'rgb(255, 232, 126)' }}>
+									<Card
+										key={comic.id}
+										style={{ backgroundColor: 'rgb(255, 232, 126)' }}>
 										<Card.Body>
 											<Card.Title className='text-name'>
-												{comic.title}
+												{comic.title} #{comic.issue}
 											</Card.Title>
 											<Card.Text>
 												<img
@@ -49,37 +49,42 @@ class UserCollection extends Component {
 													src={`${comic.personal_image}`}
 													alt='personal-cover'
 												/>
+												<p>Cover date: {comic.publication_date}</p>
+												<p>Notes: {comic.notes}</p>
 											</Card.Text>
 										</Card.Body>
-										<Button
-											variant='primary'
-											className='edit-button'
-											value={comic.id}
-											onClick={(e) => {
-												const updateComic = this.props.comicsCollection.find(
-													(comic) => comic.id === e.currentTarget.value
-												);
-
-												this.setState({
-													setModalShow: true,
-													modalShow: true,
-													updateComic: updateComic,
-												});
-											}}>
-											Edit
-										</Button>{' '}
+										<Link to='/collection/:id'>
+											<Button
+												variant='primary'
+												className='edit-button'
+												value={comic.id}
+												onClick={(e) => {
+													const selectedComic = this.props.comicsCollection.find(
+														(comic) => comic.id === e.currentTarget.value
+													);
+													this.setState({
+														selectedComic: selectedComic,
+													});
+												}}>
+												Edit
+											</Button>
+										</Link>{' '}
 									</Card>
 								</CardGroup>
 							</div>
 						);
 					})}
-
-					<UserCollectionModal
-						newComic={this.state.newComic}
-						show={this.state.modalShow}
-						onHide={() =>
-							this.setState({ setModalShow: false, modalShow: false })
-						}
+					<Route
+						path='/collection/:id'
+						render={(routerProps) => {
+							return (
+								<UpdateCollectionForm
+									history={routerProps.history}
+									comicsCollection={this.state.data}
+									comicBook={routerProps.match}
+								/>
+							);
+						}}
 					/>
 				</Container>
 			</Container>

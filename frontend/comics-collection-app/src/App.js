@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import Search from './components/Search';
 import Home from './components/Home';
 import UserCollection from './components/UserCollection';
+import UpdateCollectionForm from './components/UpdateCollectionForm';
 
 class App extends Component {
 	constructor() {
@@ -46,6 +47,19 @@ class App extends Component {
 								this.componentWillMount();
 								return (
 									<UserCollection
+										comicsCollection={this.state.data}
+										history={routerProps.history}
+									/>
+								);
+							}}
+						/>
+						<Route
+							exact
+							path='/collection/:id'
+							render={(routerProps) => {
+								this.componentWillMount();
+								return (
+									<UpdateCollectionForm
 										comicsCollection={this.state.data}
 										history={routerProps.history}
 									/>

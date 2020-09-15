@@ -3,14 +3,28 @@ import { Button, Container, Card, CardGroup } from 'react-bootstrap';
 import axios from 'axios';
 import { Link, Route } from 'react-router-dom';
 import UpdateCollectionForm from './UpdateCollectionForm';
+import AddComicModal from './AddComicModal';
 
 class UserCollection extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			title: '',
+			issue: '',
+			publication_date: '',
+			cover_url: '',
+			personal_image: '',
+			notes: '',
 			newComic: {},
 		};
 	}
+	showModal = () => {
+		this.setState({ show: true });
+	};
+
+	hideModal = () => {
+		this.setState({ show: false });
+	};
 	componentWillMount() {
 		axios
 			.get(`https://dws-comicbook-collection.herokuapp.com/comics`)
@@ -24,7 +38,12 @@ class UserCollection extends Component {
 	render() {
 		return (
 			<Container className='main-view'>
-				<h1 className='user-collection'>Your comic book collection</h1>
+				<h1 className='user-collection'>
+					Your comic book collection{' '}
+					<Button variant='success' onClick={this.state.showModal}>
+						+
+					</Button>{' '}
+				</h1>
 
 				<Container className='cards'>
 					{this.props.comicsCollection.map((comic) => {
@@ -74,6 +93,11 @@ class UserCollection extends Component {
 							</div>
 						);
 					})}
+					<AddComicModal>
+						newComic={this.state.newComic}
+						show={this.state.showModal}
+						onHide={this.state.hideModal}
+					</AddComicModal>
 					<Route
 						path='/collection/:id'
 						render={(routerProps) => {

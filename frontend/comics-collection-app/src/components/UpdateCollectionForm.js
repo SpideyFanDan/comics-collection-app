@@ -17,8 +17,8 @@ class UpdateCollectionForm extends Component {
 		};
 	}
 	componentWillMount() {
-		const selectedComic = this.props.comicsCollection.find(
-			(comicBook) => comicBook.id === this.props.comicBook.params.id
+		const selectedComic = this.comicsCollection.find(
+			(comicBook) => comicBook.id === this.comicBook.params.id
 		);
 		this.setState({
 			comicBook: selectedComic,
@@ -32,12 +32,10 @@ class UpdateCollectionForm extends Component {
 			)
 			.then((res) => {
 				console.log(res);
-				this.history.goBack();
 			});
 	};
-	handleEdit = (e) => {
+	handleOnChange = (e) => {
 		e.preventDefault();
-		console.log(this.comicBook.id);
 		axios
 			.put(
 				`https://dws-comicbook-collection.herokuapp.com/comics/${this.comicBook.id}`,
@@ -52,7 +50,6 @@ class UpdateCollectionForm extends Component {
 			)
 			.then((res) => {
 				console.log(res);
-				this.history.goBack();
 			});
 	};
 	cancel = () => {
@@ -78,18 +75,22 @@ class UpdateCollectionForm extends Component {
 						<Form.Control as='textarea' rows='3' value={this.comicBook.notes} />
 					</Form.Group>
 				</Form>
-				<Button
-					className='modal-delete-button'
-					variant='danger'
-					onClick={this.handleDelete}>
-					Delete
-				</Button>{' '}
-				<Button
-					className='modal-edit-button'
-					variant='warning'
-					onClick={this.handleEdit}>
-					Edit
-				</Button>
+				<Link to='/collection'>
+					<Button
+						className='modal-delete-button'
+						variant='danger'
+						onClick={this.handleDelete}>
+						Delete
+					</Button>
+				</Link>{' '}
+				<Link to='/collection'>
+					<Button
+						className='modal-edit-button'
+						variant='warning'
+						onClick={this.handleOnChange}>
+						Edit
+					</Button>
+				</Link>
 				<Link to='/collection'>
 					<Button
 						className='modal-cancel-button'

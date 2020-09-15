@@ -35,10 +35,10 @@ class UserCollection extends Component {
 										key={comic.id}
 										style={{ backgroundColor: 'rgb(255, 232, 126)' }}>
 										<Card.Body>
-											<Card.Title className='text-name'>
+											<Card.Title as='h1' className='text-name'>
 												{comic.title} #{comic.issue}
 											</Card.Title>
-											<Card.Text>
+											<Card.Text as='h2'>
 												<img
 													className='cover'
 													src={`${comic.cover_url}`}
